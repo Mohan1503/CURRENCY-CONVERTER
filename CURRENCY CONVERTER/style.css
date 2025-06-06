@@ -1,0 +1,103 @@
+/* --- Global Styles & Variables (Sleek Dark Mode) --- */
+:root {
+    --primary-color: #36d399; /* Vibrant Green */
+    --primary-text-color: #a6adbb; /* Light Gray for Text */
+    --secondary-text-color: #8d96a7; /* Dimmer Gray */
+    --background-color: #1d232a; /* Deep Charcoal */
+    --card-background-color: #2a323c; /* Lighter Charcoal */
+    --border-color: #4a5568; /* Mid-tone Gray */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Main Converter Card --- */
+.converter-card {
+    background: var(--card-background-color);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px var(--shadow-color);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.converter-card h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* --- Form & Input Elements --- */
+.converter-form .form-group { margin-bottom: 25px; text-align: left; }
+.converter-form label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--secondary-text-color); }
+
+.converter-form input[type="number"] {
+    width: 100%; padding: 15px; font-size: 1.5rem; font-weight: 600;
+    border: 1px solid var(--border-color); border-radius: 12px;
+    background-color: var(--background-color); color: var(--primary-text-color);
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.converter-form input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(54, 211, 153, 0.3);
+}
+
+/* --- Currency From/To Section --- */
+.currency-selection { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.currency-group { flex: 1; }
+
+.select-container {
+    display: flex; align-items: center; border: 1px solid var(--border-color);
+    border-radius: 12px; padding: 5px 15px; background-color: var(--background-color);
+}
+
+.select-container .flag-icon { width: 24px; height: 24px; margin-right: 10px; border-radius: 50%; object-fit: cover; }
+
+.select-container select {
+    width: 100%; border: none; outline: none; background: transparent;
+    font-size: 1.1rem; font-weight: 500; color: var(--primary-text-color);
+    cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a6adbb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 1rem center; background-repeat: no-repeat; background-size: 1em;
+}
+
+.swap-button {
+    background-color: var(--card-background-color); border: 1px solid var(--border-color);
+    border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.3s ease, background-color 0.2s;
+}
+.swap-button:hover { background-color: var(--background-color); }
+.swap-button svg { width: 20px; height: 20px; color: var(--primary-color); }
+
+/* --- Result Display --- */
+.result-display {
+    margin-top: 30px; padding: 25px; background-color: var(--background-color);
+    border-radius: 16px; min-height: 130px; display: flex; align-items: center; justify-content: center;
+}
+.result-display .result-label { font-size: 0.9rem; color: var(--secondary-text-color); margin-bottom: 5px; }
+.result-display .result-amount { font-size: 2.5rem; font-weight: 700; color: #ffffff; }
+.result-display .exchange-rate { font-size: 1rem; color: var(--secondary-text-color); margin-top: 10px; }
+
+/* --- Responsive Design --- */
+@media (max-width: 550px) {
+    .converter-card { padding: 25px; }
+    .currency-selection { flex-direction: column; }
+    .currency-group { width: 100%; }
+    .swap-button { transform: rotate(90deg); margin: 5px 0; }
+    .converter-card h1 { font-size: 1.8rem; }
+    .result-display .result-amount { font-size: 2rem; }
+}
